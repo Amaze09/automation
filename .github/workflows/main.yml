@@ -1,0 +1,38 @@
+#name of the action
+name : Standard Flow
+
+#on the following events, the workflow is triggered
+on:
+  workflow_dispatch:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
+
+permissions:
+  contents: read
+  # Needed for the 'trilom/file-changes-action' action
+  pull-requests: read
+  push: read
+
+jobs:
+  #name of the job that is run
+  run_test:
+    #an ubuntu virtual machine is created for the workflow to run
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.12.1
+
+      - name: 📥 Get latest source code
+        uses: actions/checkout@v3
+
+      - name: 📦 Install dependencies
+        run: npm ci  
+
+      - name: 🧪 Run tests suite
+        run: npx hardhat test 
+
