@@ -13,7 +13,6 @@ permissions:
   contents: read
   # Needed for the 'trilom/file-changes-action' action
   pull-requests: read
-  push: read
 
 jobs:
   #name of the job that is run
