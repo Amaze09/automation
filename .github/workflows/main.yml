@@ -33,5 +33,25 @@ jobs:
         run: npm ci  
 
       - name: 🧪 Run tests suite
-        run: npx hardhat test 
+        run: npx hardhat test
+
+  lint-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🔧 Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18.12.1
+
+      - name: 📥 Get latest source code
+        uses: actions/checkout@v3
+
+      - name: 📦 Install dependencies
+        run: npm ci
+
+      - name: solhint
+        uses: contractshark/inject-solhint-ci@latest
+        with:
+          solhint_input: 'contracts/*.sol'           
 
