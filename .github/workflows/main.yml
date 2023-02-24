@@ -51,7 +51,6 @@ jobs:
         run: npm ci
 
       - name: solhint
-        uses: contractshark/inject-solhint-ci@latest
-        with:
-          solhint_input: 'contracts/*.sol'           
+        run: solhint --init  
+        run: solhint 'contracts/*.sol'   
 
