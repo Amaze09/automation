@@ -50,6 +50,9 @@ jobs:
       - name: 📦 Install dependencies
         run: npm ci
 
+      - name: Install solhint
+        run: npm install -g solhint  
+
       - name: solhint init
         run: solhint --init
       - name: solhint exe    
