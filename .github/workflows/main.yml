@@ -48,7 +48,7 @@ jobs:
       - name: 📥 Get latest source code
         uses: actions/checkout@v3
 
-      - name: 📦 Install dependencies
+      - name: Install dependencies
         run: npm ci
 
       - name: Install solhint
