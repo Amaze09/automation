@@ -84,5 +84,5 @@ jobs:
       - uses: crytic/slither-action@v0.3.0
         with:
           target: 'contracts/'
-          solc-version: 0.8.1+commit.df193b15.Linux.g++                   
+          solc-version: 0.8.1                  
 
