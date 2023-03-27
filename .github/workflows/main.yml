@@ -74,5 +74,14 @@ jobs:
         run: npm ci
 
       - name: check coverage    
-        run: npx hardhat coverage             
+        run: npx hardhat coverage
+
+  slither_analysis:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: crytic/slither-action@v0.3.0
+        with:
+          target: 'contracts/'                   
 
